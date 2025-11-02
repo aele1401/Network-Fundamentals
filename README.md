@@ -46,13 +46,13 @@ done
 - Hacker has the MAC address **00:0C:29:1D:B3:B1**
 - IOC of ARP poisoning, traffic redirected to malicious device instead of correct destination
 - Vulnerabilites:
-    * Rockstar Corp. configured machines not to accept any connections and machine 167.172.144.11 accepted an ICMP echo request which is a security misconfiguration.
+    * Rockstar Corp. configured machines not to accept any connections and machine `167.172.144.11` accepted an ICMP echo request which is a security misconfiguration.
     * After SYN scan was conducted results showed port 22 was open without encryption enabled which is vulnerable to SSH attacks.
-    * Utilizing nslookup tool domain rollingstone.com returned with multiple IP addresses which is indicative of DNS spoofing with traffic redirection which can lead to pharming and credential harvesting attacks.
+    * Utilizing nslookup tool domain `rollingstone.com` returned with multiple IP addresses which is indicative of DNS spoofing with traffic redirection which can lead to pharming and credential harvesting attacks.
     * There's confirmation of a hacker somewhere on the network with the above MAC redirecting traffic.
 - Mitigations:
-    * Restrict IMCP echo requests and properly configure settings.
-    * Close port 22 or enable public and private key encryption.
+    * Restrict ICMP echo requests and properly configure settings.
+    * Close port 22 if not in use or enable public and private key encryption. Also, disable any root privileges.
     * Utilize a static ARP in server to prevent spoofing.
     * Utilize IPS/IDS tools that scan send alerts and block suspicious/malicious activities like this.
     * Utilize DAI with rate limiting which filters ARP messages through a switch.
